@@ -53,10 +53,14 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {"", "", "", "", "", "", "", "", ""};
+static char *tags[] = {"", "", "", "", ""};
 
 static const char* eww[] = { "eww", "open" , "eww", NULL };
 static const char *roficmd[]  = { "rofi", "-show", "drun","-show-icons", NULL };
+
+/* scratchpad */
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
 static const Launcher launchers[] = {
     /* command     name to display */
@@ -146,7 +150,8 @@ static Key keys[] = {
     // { MODKEY,                           XK_Return, spawn,            SHCMD("st_pad && st")},
 
 	// spawn shit
-	{ MODKEY,							XK_w,		spawn,		SHCMD("$BROWSER") },
+	{ MODKEY,							XK_w,		spawn,			SHCMD("$BROWSER") },
+    { MODKEY|ShiftMask,                 XK_Return,  togglescratch,  {.v = scratchpadcmd } },
 
     // toggle stuff
     { MODKEY,                           XK_b,       togglebar,      {0} },
@@ -170,7 +175,7 @@ static Key keys[] = {
 
     { MODKEY|ShiftMask,                 XK_j,       movestack,      {.i = +1 } },
     { MODKEY|ShiftMask,                 XK_k,       movestack,      {.i = -1 } },
-    { MODKEY|ShiftMask,                 XK_Return,  zoom,           {0} },
+    /* { MODKEY|ShiftMask,                 XK_Return,  zoom,           {0} }, */
     { MODKEY,                           XK_Tab,     view,           {0} },
 
     // overall gaps
