@@ -3,7 +3,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int default_border = 0;   /* to switch back to default border after dynamic border resizing via keybinds */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
@@ -53,9 +53,10 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {"", "", "", "", ""};
+static char *tags[] = {"", "", "", "", "", "", "", "", ""};
 
 static const char* eww[] = { "eww", "open" , "eww", NULL };
+static const char *roficmd[]  = { "rofi", "-show", "drun","-show-icons", NULL };
 
 static const Launcher launchers[] = {
     /* command     name to display */
@@ -140,10 +141,12 @@ static Key keys[] = {
         SHCMD("maim --select | xclip -selection clipboard -t image/png")},
 
 
-    { MODKEY,                           XK_c,       spawn,          SHCMD("rofi -show drun") },
+    { MODKEY,                           XK_d,       spawn,          {.v = roficmd} },
     { MODKEY,                           XK_Return,  spawn,          SHCMD("st")},
     // { MODKEY,                           XK_Return, spawn,            SHCMD("st_pad && st")},
-    
+
+	// spawn shit
+	{ MODKEY,							XK_w,		spawn,		SHCMD("$BROWSER") },
 
     // toggle stuff
     { MODKEY,                           XK_b,       togglebar,      {0} },
@@ -155,7 +158,7 @@ static Key keys[] = {
     { MODKEY,                           XK_j,       focusstack,     {.i = +1 } },
     { MODKEY,                           XK_k,       focusstack,     {.i = -1 } },
     { MODKEY,                           XK_i,       incnmaster,     {.i = +1 } },
-    { MODKEY,                           XK_d,       incnmaster,     {.i = -1 } },
+    /* { MODKEY,                           XK_d,       incnmaster,     {.i = -1 } }, */
 
     // change m,cfact sizes 
     { MODKEY,                           XK_h,       setmfact,       {.f = -0.05} },
@@ -191,9 +194,7 @@ static Key keys[] = {
     { MODKEY|ControlMask|ShiftMask,     XK_8,       incrohgaps,     {.i = -1 } },
     { MODKEY|ControlMask,               XK_9,       incrovgaps,     {.i = +1 } },
     { MODKEY|ControlMask|ShiftMask,     XK_9,       incrovgaps,     {.i = -1 } },
-
     { MODKEY|ControlMask|ShiftMask,     XK_d,       defaultgaps,    {0} },
-
 
     // layout
     { MODKEY,                           XK_t,       setlayout,      {.v = &layouts[0]} },
@@ -214,7 +215,7 @@ static Key keys[] = {
     // change border size
     { MODKEY|ShiftMask,                 XK_minus,   setborderpx,    {.i = -1 } },
     { MODKEY|ShiftMask,                 XK_p,       setborderpx,    {.i = +1 } },
-    { MODKEY|ShiftMask,                 XK_w,       setborderpx,    {.i = default_border } },
+    /* { MODKEY|ShiftMask,                 XK_w,       setborderpx,    {.i = default_border } }, */
 
     // kill dwm
     { MODKEY|ControlMask,               XK_q,       quit,           {0} },
