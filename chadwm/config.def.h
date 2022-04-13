@@ -29,7 +29,8 @@ static const int tag_preview        = 0;        /* 1 means enable, 0 is off */
 static const int colorfultag        = 1;        /* 0 means use SchemeSel for selected non vacant tag */
 
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:size=10",
-                                        "MaterialIcons-Regular:size=10" };
+                                        "MaterialIcons-Regular:size=10",
+										"Font Awesome 6 Free"};
 
 // theme
 #include "themes/onedark.h"
@@ -54,7 +55,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {"", "", "", "", "", "",};
+static char *tags[] = {"", "", "", "", "", "",};
 
 static const char* eww[] = { "eww", "open" , "eww", NULL };
 static const char* roficmd[]  = { "rofi", "-show", "drun","-show-icons", NULL };
@@ -86,6 +87,7 @@ static const Rule rules[] = {
     { "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
     { "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
     { "eww",      NULL,       NULL,       0,            0,           1,           -1 },
+	{ NULL, 	  NULL,   "scratchpad",   0, 			0, 			 1, 		  -1 }
 };
 
 /* layout(s) */
