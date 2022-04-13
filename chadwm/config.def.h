@@ -29,7 +29,7 @@ static const int tag_preview        = 0;        /* 1 means enable, 0 is off */
 static const int colorfultag        = 1;        /* 0 means use SchemeSel for selected non vacant tag */
 
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:style:medium:size=10",
-                                        "Material Design Icons-Regular:size=10" };
+                                        "MaterialIcons-Regular:size=10" };
 
 // theme
 #include "themes/onedark.h"
@@ -45,7 +45,8 @@ static const char *colors[][3]      = {
     [SchemeTag2]       = { red,     black,  black },
     [SchemeTag3]       = { orange,  black,  black },
     [SchemeTag4]       = { green,   black,  black },
-    [SchemeTag5]       = { pink,    black,  black },
+    [SchemeTag5]       = { blue,  	black,  black },
+    [SchemeTag6]       = { pink,    black,  black },
     [SchemeLayout]     = { green,   black,  black },
     [SchemeBtnPrev]    = { green,   black,  black },
     [SchemeBtnNext]    = { yellow,  black,  black },
@@ -53,10 +54,10 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {"", "", "", "", ""};
+static char *tags[] = {"", "", "", "", "", "",};
 
 static const char* eww[] = { "eww", "open" , "eww", NULL };
-static const char *roficmd[]  = { "rofi", "-show", "drun","-show-icons", NULL };
+static const char* roficmd[]  = { "rofi", "-show", "drun","-show-icons", NULL };
 
 /* scratchpad */
 static const char scratchpadname[] = "scratchpad";
@@ -68,7 +69,7 @@ static const Launcher launchers[] = {
 };
 
 static const int tagschemes[] = {
-    SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5
+    SchemeTag1, SchemeTag2, SchemeTag3, SchemeTag4, SchemeTag5, SchemeTag6
 };
 
 static const unsigned int ulinepad      = 5; /* horizontal padding between the underline and tag */
@@ -172,7 +173,6 @@ static Key keys[] = {
     {MODKEY|ShiftMask,              XK_h,       	setcfact,       {.f = +0.25}},
     {MODKEY|ShiftMask,              XK_l,       	setcfact,       {.f = -0.25}},
     {MODKEY|ShiftMask,              XK_o,       	setcfact,       {.f =  0.00}},
-
 
     {MODKEY|ShiftMask,              XK_j,       	movestack,      {.i = +1}},
     {MODKEY|ShiftMask,              XK_k,       	movestack,      {.i = -1}},
