@@ -55,7 +55,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static char *tags[] = {"", "", "", "", "", "",};
+static char *tags[] = {"", "", "", "","", "",};
 
 static const char* eww[] = { "eww", "open" , "eww", NULL };
 static const char* roficmd[]  = { "rofi", "-show", "drun","-show-icons", NULL };
@@ -78,16 +78,18 @@ static const unsigned int ulinestroke   = 2; /* thickness / height of the underl
 static const unsigned int ulinevoffset  = 0; /* how far above the bottom of the bar the line should appear */
 static const int ulineall               = 0; /* 1 to show underline on all tags, 0 for just the active ones */
 
+/* vars */
 static const Rule rules[] = {
     /* xprop(1):
      *	WM_CLASS(STRING) = instance, class
      *	WM_NAME(STRING) = title
      */
-    /* class      instance    title       tags mask     iscentered   isfloating   monitor */
-    { "Gimp",     NULL,       NULL,       0,            0,           1,           -1 },
-    { "Firefox",  NULL,       NULL,       1 << 8,       0,           0,           -1 },
-    { "eww",      NULL,       NULL,       0,            0,           1,           -1 },
-	{ NULL, 	  NULL,   "scratchpad",   0, 			0, 			 1, 		  -1 }
+    /* class 				instance    title       tags mask     iscentered   isfloating   monitor */
+    { "Gimp", 				NULL,       NULL,       0,            0,           1,           -1 },
+    { "firefox", 			NULL,       NULL,       1 << 8,       0,           0,           -1 },
+    { "eww", 				NULL,       NULL,       0,            0,           1,           -1 },
+    /* { "Workspacesclient", 	NULL,       NULL,       0,            1,           1,           -1 }, */
+	{ NULL, 				NULL,   "scratchpad",   0, 			  0, 		   1, 		    -1 }
 };
 
 /* layout(s) */
